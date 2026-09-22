@@ -1,0 +1,59 @@
+# Continuation of natural_marshmallow.inputs: two bait rewards fund the finale.
+2 B
+779
+# Create a short route before the second HQ visit so the alarm can mature.
+16 Left
+16 Right
+2 Down Space
+725
+2 B
+# Let the profitable rendezvous deliver us to Zuul, centre each buster and
+# move through the opening. All collision checks remain active.
+2123
+4 Left
+89
+24 Up
+134
+4 Left
+62
+24 Up
+3000
+# Complete F3 restart, then reuse the displayed account for the same name.
+2 F3
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 Y
+2
+2 Return
+600
+# Account for AB and $15600: 26752600.
+2 2
+2
+2 6
+2
+2 7
+2
+2 5
+2
+2 2
+2
+2 6
+2
+2 0
+2
+2 0
+2
+2 Return
+1200
+# Buy the Compact in the new game; no old equipment is retained.
+2 1
+100
+2 Return
+500

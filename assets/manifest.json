@@ -1,0 +1,622 @@
+{
+  "format_version": 1,
+  "regions": [
+    {
+      "name": "audio/effects/controls",
+      "file": "audio/effects/resources.json",
+      "size": 16,
+      "sha256": "9143f6f93e4be60b8cd2d13752ed4ec428cdc495d3033f7cc528a8fa3b346e51"
+    },
+    {
+      "name": "audio/effects/delays",
+      "file": "audio/effects/resources.json",
+      "size": 24,
+      "sha256": "04055a7844216c1f77c87cc214258fc65fae86be479f2c7de1c80a75259ea431"
+    },
+    {
+      "name": "audio/effects/frequencies",
+      "file": "audio/effects/resources.json",
+      "size": 96,
+      "sha256": "2a5863b3be35f7c68389f293de14b091b506ef62842db29b9ab89c7936e410aa"
+    },
+    {
+      "name": "audio/effects/pitches",
+      "file": "audio/effects/resources.json",
+      "size": 96,
+      "sha256": "bd91f92b715705382552d9e4c30d0ff6406ecb5c13289c8d4e02910a4271f1f7"
+    },
+    {
+      "name": "audio/effects/streams",
+      "file": "audio/effects/resources.json",
+      "size": 60,
+      "sha256": "59801f6ed64650666d05636dcfc1c7168a8daf3064bcd17fd15b7d8c99bbe24c"
+    },
+    {
+      "name": "audio/music/frequencies",
+      "file": "audio/music/resources.json",
+      "size": 192,
+      "sha256": "7b6b156cea7ba82f20328b745b459bb82beaef0a5f22ef3342c19053ea0da4f8"
+    },
+    {
+      "name": "audio/music/instruments",
+      "file": "audio/music/resources.json",
+      "size": 72,
+      "sha256": "0a6d28e165ced2b6ebb7f4f82e73b3dae1041a12d20987a433a8396b24b1de96"
+    },
+    {
+      "name": "audio/music/phrases",
+      "file": "audio/music/resources.json",
+      "size": 852,
+      "sha256": "1d05cdb3f85964cb04e206e74c860119fd2d98ca0ee2a94114fa2b963864e345"
+    },
+    {
+      "name": "audio/music/sequence_0",
+      "file": "audio/music/resources.json",
+      "size": 110,
+      "sha256": "ff52464c11c2fd5e2badfc7a1a46d8fe157196d426d40dd2dcd5376c43b68e41"
+    },
+    {
+      "name": "audio/music/sequence_1",
+      "file": "audio/music/resources.json",
+      "size": 110,
+      "sha256": "cbcbdc23a53c37542930b11aa0d0a73f8603e6546378158d5160929733c55448"
+    },
+    {
+      "name": "audio/music/sequence_2",
+      "file": "audio/music/resources.json",
+      "size": 110,
+      "sha256": "c4c84a228b9ce3387faa7ff32ced1b4e30002d056075659a2a9d9bb9b662a37f"
+    },
+    {
+      "name": "audio/music/voice_offsets",
+      "file": "audio/music/resources.json",
+      "size": 3,
+      "sha256": "b361d0f9a938a2bb4fbdc9c21dc5a859788041b0040919d8a811c1888184f4df"
+    },
+    {
+      "name": "buildings/descriptors/1/charset_patch",
+      "file": "graphics/buildings/resources.json",
+      "size": 16,
+      "sha256": "5ac6a5945f16500911219129984ba8b387a06f24fe383ce4e81a73294065461b"
+    },
+    {
+      "name": "buildings/descriptors/2/charset_patch",
+      "file": "graphics/buildings/resources.json",
+      "size": 16,
+      "sha256": "bc1443a0d17aab2db1ea0302ef280717ac9a2f23355c5b649ea87d605430458d"
+    },
+    {
+      "name": "buildings/descriptors/3/charset_patch",
+      "file": "graphics/buildings/resources.json",
+      "size": 16,
+      "sha256": "79ec0eeebaaa73c4ef0727e0d7eb802cc5b17da1b6c99e2afa2f87ceb6f09d3e"
+    },
+    {
+      "name": "buildings/headquarters/sign",
+      "file": "graphics/buildings/resources.json",
+      "size": 12,
+      "sha256": "512943b353f6fc18bde6655380cfe99405fa907440a3eb56c52649c451dd6350"
+    },
+    {
+      "name": "buildings/normal/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 1536,
+      "sha256": "d40b86f7d530b60e5b59dbe0017feb570a78c57dc78f3f759f3a7fb84386a606"
+    },
+    {
+      "name": "buildings/normal/colors",
+      "file": "graphics/buildings/resources.json",
+      "size": 840,
+      "sha256": "39adeea7df36192f4f9dc996d9406ec44b062654a9024c807073914c9e5be0cd"
+    },
+    {
+      "name": "buildings/normal/screen",
+      "file": "graphics/buildings/resources.json",
+      "size": 840,
+      "sha256": "567a8f2d0d11a3ee92adf15b66b1115077d5448768ef9bd836515d0243be4e4d"
+    },
+    {
+      "name": "buildings/overlays/high/1/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 512,
+      "sha256": "d3400d842ef5d39a1c96b6a5c346764863637549e21abb5d2db3f8a846e154b2"
+    },
+    {
+      "name": "buildings/overlays/high/1/screen",
+      "file": "graphics/buildings/resources.json",
+      "size": 220,
+      "sha256": "4984429fd50080d725ba2833bad0a89bab901f15b9d89d775e7eb9b266ffa8f7"
+    },
+    {
+      "name": "buildings/overlays/high/2/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 512,
+      "sha256": "7f006f10bf850cbac450d44deca51e3e1626a2c26ea6929795bd045592f41400"
+    },
+    {
+      "name": "buildings/overlays/high/2/screen",
+      "file": "graphics/buildings/resources.json",
+      "size": 220,
+      "sha256": "b09793ce5937650de637dc45ca61bf00d808fe1a63c5825167beb5f8626353fc"
+    },
+    {
+      "name": "buildings/overlays/high/3/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 512,
+      "sha256": "f3ff37f17aa6f21817a7943c882981289461ef069d8327c7af391ba034fedcc5"
+    },
+    {
+      "name": "buildings/overlays/high/3/screen",
+      "file": "graphics/buildings/resources.json",
+      "size": 220,
+      "sha256": "f866d814c8fac731afad81d0827eb463710170bf37bae4a54c3aa895d5cce41d"
+    },
+    {
+      "name": "buildings/overlays/low/1/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 112,
+      "sha256": "98cdbda341d5091a44fca76385459299a77d95a6c75caa1a9d5e67fb476ba48e"
+    },
+    {
+      "name": "buildings/overlays/low/1/tiles",
+      "file": "graphics/buildings/resources.json",
+      "size": 24,
+      "sha256": "2f51b7a7271fa19997804f966292d2c133580783ec58c3755eef01a20f6d7d5c"
+    },
+    {
+      "name": "buildings/overlays/low/2/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 112,
+      "sha256": "6a16f30f8f9ed2461e21dac1b40c36551d07683606aeaa12b30f87bc41c125ee"
+    },
+    {
+      "name": "buildings/overlays/low/2/tiles",
+      "file": "graphics/buildings/resources.json",
+      "size": 24,
+      "sha256": "d205b40939206db3d68a3daecfb892458f0ddf7e1f5b8a748dafb8cc4ff04656"
+    },
+    {
+      "name": "buildings/overlays/low/3/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 112,
+      "sha256": "cb683dd88985956462319877a08fbfb6fa2bedc5e50a2d8b238ec757a3123e0b"
+    },
+    {
+      "name": "buildings/overlays/low/3/tiles",
+      "file": "graphics/buildings/resources.json",
+      "size": 24,
+      "sha256": "9de47769c136520bad00d78298cc10924421cbc77dd92eff1daa0dedc297c02b"
+    },
+    {
+      "name": "buildings/vehicles/compact/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 96,
+      "sha256": "05103286ecfcf859deb754280b1db6a04538be8ebafba274ec966802876c2d85"
+    },
+    {
+      "name": "buildings/vehicles/hearse/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 96,
+      "sha256": "e5bbe7c12dafbef83f5fe4c21808aa2b80514937756a297fc1f76cab5a579083"
+    },
+    {
+      "name": "buildings/vehicles/performance/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 96,
+      "sha256": "43c22fb0f22f0437530691784295b40e8cf4fa68148168f1cf477375f5a5511f"
+    },
+    {
+      "name": "buildings/vehicles/wagon/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 96,
+      "sha256": "ab23ba8006924ad9666044dc5beee51e123f546a7714a71dfb3821297bb89f4d"
+    },
+    {
+      "name": "buildings/zuul/charset",
+      "file": "graphics/buildings/resources.json",
+      "size": 1536,
+      "sha256": "e59e9fc6d8f0aeb972b3f58746385047fe9c53a2e7d217b329d18c5b37650e2b"
+    },
+    {
+      "name": "buildings/zuul/colors",
+      "file": "graphics/buildings/resources.json",
+      "size": 840,
+      "sha256": "8a379d43512037bfcaf5e8af1956d512f638d7781f5cc8aad786a8ff950631db"
+    },
+    {
+      "name": "buildings/zuul/screen",
+      "file": "graphics/buildings/resources.json",
+      "size": 840,
+      "sha256": "e42ead2a8fc15b12bf012ba9a7428b975a72ddc1cac37f290927d9d9735f010e"
+    },
+    {
+      "name": "city/charset",
+      "file": "graphics/city/charset.bin",
+      "size": 1536,
+      "sha256": "f27fb7ceced1b172dd634171c8bc2cbf5c923a8cdd68f86addd628257531557a"
+    },
+    {
+      "name": "city/status_row",
+      "file": "graphics/city/status_row.bin",
+      "size": 40,
+      "sha256": "1e6568febab0f8a93d4e35107f46f122f6405fc448991f983bf890dbb8bdc713"
+    },
+    {
+      "name": "city/tiles",
+      "file": "graphics/city/tiles.bin",
+      "size": 160,
+      "sha256": "bdcaa139a76ab3ceb261df2e5f7c2b82ae43ac3e8236d5dcfc339a118abea907"
+    },
+    {
+      "name": "graphics/shared_sprites",
+      "file": "graphics/sprites/shared.bin",
+      "size": 3776,
+      "sha256": "2541e5c21e66417df80adf00a3d9a1e6494f1cb04b6f95334532f72a80cd3ccf"
+    },
+    {
+      "name": "text/account_label",
+      "file": "text/dialogs.json",
+      "size": 3,
+      "sha256": "3a024f2252d06f6d0e7178f849ea70f77e26630f104535cb03379954cc1f463b"
+    },
+    {
+      "name": "text/account_number",
+      "file": "text/dialogs.json",
+      "size": 30,
+      "sha256": "4f312cd48393a9d47e1280427a32af2fc716734fde8e3e3d6fb5fcfb5ec99750"
+    },
+    {
+      "name": "text/account_prefix",
+      "file": "text/dialogs.json",
+      "size": 31,
+      "sha256": "cd00933b9f67e2ed4446f2c4615ced5c1e61f0d73bac45b6ec4b9ec11180d935"
+    },
+    {
+      "name": "text/account_question",
+      "file": "text/dialogs.json",
+      "size": 26,
+      "sha256": "7a454511911f3dcff8937ac8f6ea143e81acc7fb576f1b4b172b8c1702c342ed"
+    },
+    {
+      "name": "text/balance_prefix",
+      "file": "text/dialogs.json",
+      "size": 12,
+      "sha256": "88c784d00f9ace03161694172daa7e081c219080bbc155dee52142fae38dc02f"
+    },
+    {
+      "name": "text/credit_prefix",
+      "file": "text/dialogs.json",
+      "size": 90,
+      "sha256": "11340e0d8c67a3c1c84f0c447cb7a0e505983bc2c48cfa085935203f9f11fd5d"
+    },
+    {
+      "name": "text/ending_balance",
+      "file": "text/dialogs.json",
+      "size": 21,
+      "sha256": "8ea1a20af0e98622a4386d24345fe3792579f79ce5ce37dab0bd804828afe321"
+    },
+    {
+      "name": "text/equipment_category_0",
+      "file": "text/dialogs.json",
+      "size": 283,
+      "sha256": "9be43f739068ffdcd178e0a26e0ccdc699bf2151f9ea5e7e53c0275093d2be32"
+    },
+    {
+      "name": "text/equipment_category_1",
+      "file": "text/dialogs.json",
+      "size": 283,
+      "sha256": "51f45511f4f5674605e0debb18069f4301d03e3d533cd36bc3bfd2cec9944ca4"
+    },
+    {
+      "name": "text/equipment_category_2",
+      "file": "text/dialogs.json",
+      "size": 289,
+      "sha256": "c30fa681b62d1bee54e71f47720c396ee959efb167976dd6931352d817cbf8e0"
+    },
+    {
+      "name": "text/failure_prefix",
+      "file": "text/dialogs.json",
+      "size": 10,
+      "sha256": "17f0eb4d929ddbd8412370c13841a0f589c08eb7164b58fc27defe94e74b3d33"
+    },
+    {
+      "name": "text/failure_suffix",
+      "file": "text/dialogs.json",
+      "size": 92,
+      "sha256": "62ac029b3e982e3e396e2c8b618275ca55d73b546c843f024025de6d9acb79cb"
+    },
+    {
+      "name": "text/franchise_intro",
+      "file": "text/dialogs.json",
+      "size": 205,
+      "sha256": "1a494d6120de925cc5fa52ec419d10b95b9ac7464b6b31a5c9c1c8b3d68caf66"
+    },
+    {
+      "name": "text/invalid_account",
+      "file": "text/dialogs.json",
+      "size": 24,
+      "sha256": "1d6b63ba053ad96d23e2241790aa960935dd2cfaa16c4e0517229cbd5b6baf06"
+    },
+    {
+      "name": "text/new_account",
+      "file": "text/dialogs.json",
+      "size": 153,
+      "sha256": "46139c564c117decef24e8bc1f23afb46f5324b1a4761b00169588d1a14db547"
+    },
+    {
+      "name": "text/notice_0",
+      "file": "text/dialogs.json",
+      "size": 42,
+      "sha256": "fb60e0844f6ce6c4aef9fd06778f226c9ca4f6d4d434dfd372322232581cb244"
+    },
+    {
+      "name": "text/notice_1",
+      "file": "text/dialogs.json",
+      "size": 56,
+      "sha256": "9cd71d76161c903c3d6b2147f0460bffd38445dc2ecbea087e157f016374bada"
+    },
+    {
+      "name": "text/notice_2",
+      "file": "text/dialogs.json",
+      "size": 17,
+      "sha256": "ccae988d42a26f1f6f656047284de2153b57d6316a85419b4bf3ad0ba6187f78"
+    },
+    {
+      "name": "text/notice_3",
+      "file": "text/dialogs.json",
+      "size": 39,
+      "sha256": "90ff9704d8dc785c07d5307c4035065002746fa529b52c9cd22ce6cddfc23513"
+    },
+    {
+      "name": "text/notice_4",
+      "file": "text/dialogs.json",
+      "size": 21,
+      "sha256": "801eec324947bfe0e43d76978487a8506d41ad885374a9063fb952c620ad2db2"
+    },
+    {
+      "name": "text/notice_5",
+      "file": "text/dialogs.json",
+      "size": 92,
+      "sha256": "3dedad11071e0e29cdb8fc2845d59802eb451a81783d28659fd59389b4f99e2a"
+    },
+    {
+      "name": "text/notice_6",
+      "file": "text/dialogs.json",
+      "size": 62,
+      "sha256": "ab9f5ea368413fe4523d45b451a1906c92e034c9c997432f6430b0528b4f83c1"
+    },
+    {
+      "name": "text/notice_7",
+      "file": "text/dialogs.json",
+      "size": 33,
+      "sha256": "f7e5818a8650dcacc99bde786aa8abb7dd647987b7503116d29fa132eaa7c5dd"
+    },
+    {
+      "name": "text/notice_8",
+      "file": "text/dialogs.json",
+      "size": 92,
+      "sha256": "491519f530c93a33845211915a5697d35c39fd43e3a80045b3ea55842b36b4d1"
+    },
+    {
+      "name": "text/notice_9",
+      "file": "text/dialogs.json",
+      "size": 68,
+      "sha256": "71feeb7bc4f83a9b610fdc3bad37c616880b2eb1aa78fd5f3ee423a194235135"
+    },
+    {
+      "name": "text/poor_ending",
+      "file": "text/dialogs.json",
+      "size": 144,
+      "sha256": "c87284499ddb8bf8745bc4e30c0ec9d9b5a9617abe6696d6fb8027d3deda4a33"
+    },
+    {
+      "name": "text/resource_notice",
+      "file": "text/dialogs.json",
+      "size": 68,
+      "sha256": "1c28c8a89f23e7a6659af78dcb979ceb50eecef55168cd3adb69f4de39c3fa3d"
+    },
+    {
+      "name": "text/restart_prompt",
+      "file": "text/dialogs.json",
+      "size": 42,
+      "sha256": "6cdb03c646012675ab7034c24285c4087cc0b0abaea6acdfe3c7da16671c0dd8"
+    },
+    {
+      "name": "text/starting_balance",
+      "file": "text/dialogs.json",
+      "size": 21,
+      "sha256": "704301fe271dbc1001461b394ad8bbf37e35a0339e16f0859a9dfed6381f9afb"
+    },
+    {
+      "name": "text/success_prefix",
+      "file": "text/dialogs.json",
+      "size": 34,
+      "sha256": "01ea12e427f1b53017af454439f08c7ace6b2036091dfd041fdf7c239951b7ca"
+    },
+    {
+      "name": "text/success_suffix",
+      "file": "text/dialogs.json",
+      "size": 95,
+      "sha256": "6216abad8e24a0c4efed8910c06041981329730510beac10738dc1941f50db0a"
+    },
+    {
+      "name": "text/vehicle_hint_0",
+      "file": "text/dialogs.json",
+      "size": 36,
+      "sha256": "b1547a38ded27eb10148e5abb5bf7fef24d921994f26546381fc7d6dadefde75"
+    },
+    {
+      "name": "text/vehicle_hint_1",
+      "file": "text/dialogs.json",
+      "size": 36,
+      "sha256": "72bb547a5143a221f9a23d81076ad76868c292dee2075abbef35844beb234ab9"
+    },
+    {
+      "name": "text/vehicle_instructions",
+      "file": "text/dialogs.json",
+      "size": 120,
+      "sha256": "104eba8efeed738f025386085e8bebc409aca269b365102243b5d4fb7bd6ad76"
+    },
+    {
+      "name": "text/vehicle_menu",
+      "file": "text/dialogs.json",
+      "size": 133,
+      "sha256": "82dc493b8d2b4528cc5affc07d7e3f69ed6a69b618732f5b635224ee1b7c8403"
+    },
+    {
+      "name": "text/vehicle_preview_0",
+      "file": "text/dialogs.json",
+      "size": 68,
+      "sha256": "a779d06815c73d862a6ede2724c7bec7f36b16290e1962f67b7d51b64afa1f8f"
+    },
+    {
+      "name": "text/vehicle_preview_1",
+      "file": "text/dialogs.json",
+      "size": 72,
+      "sha256": "a85ef76621f7a43f7fa4afad52e8fb9eea74982f8e276c48c104cccb4655dbb0"
+    },
+    {
+      "name": "text/vehicle_preview_2",
+      "file": "text/dialogs.json",
+      "size": 76,
+      "sha256": "69e76aecf08a40f5128726f88dc66c7a3196c64c5f9069c807fd8cbf2007ea55"
+    },
+    {
+      "name": "text/vehicle_preview_3",
+      "file": "text/dialogs.json",
+      "size": 78,
+      "sha256": "a256f9ef1306bd814818655aa7863cf0f821514443117d562083a924a08342d1"
+    },
+    {
+      "name": "title/ball_motion",
+      "file": "graphics/title/animation.json",
+      "size": 16,
+      "sha256": "b77a7009dd92553df24b3c64ea2fae573e3517c8f14567b26463683602bbd6d2"
+    },
+    {
+      "name": "title/ball_path",
+      "file": "graphics/title/animation.json",
+      "size": 293,
+      "sha256": "a3eb3606e8b8f53eec49f7c124e420ad167be9dfdac1891e1108b1b259b1fae7"
+    },
+    {
+      "name": "title/charset",
+      "file": "graphics/title/resources.json",
+      "size": 1536,
+      "sha256": "8077301ac06b0a1895a66d89d7e6c9dfc54b3ddb36eed8f6903311a9ae2476f6"
+    },
+    {
+      "name": "title/header",
+      "file": "graphics/title/resources.json",
+      "size": 90,
+      "sha256": "8343e5bb2a8681d976b232c0c71bc7d70aea6e086ef24758461ae961733d73b8"
+    },
+    {
+      "name": "title/logo",
+      "file": "graphics/title/resources.json",
+      "size": 216,
+      "sha256": "cae7adf787edbc968ab16a9427f260c9864b18655eccba99b73509a09cc7198f"
+    },
+    {
+      "name": "title/lyrics",
+      "file": "text/lyrics.json",
+      "size": 1197,
+      "sha256": "13ee2493910b32a8f255a6164afe72ecd5f49e359ae4ea616c3441d86db81779"
+    },
+    {
+      "name": "title/timeline",
+      "file": "graphics/title/animation.json",
+      "size": 112,
+      "sha256": "49130ab6ff866c3e3f3fe12fdf381e571fd0a030a74ae503023e74405ad04e95"
+    },
+    {
+      "name": "ui/font_patch",
+      "file": "graphics/ui/resources.json",
+      "size": 128,
+      "sha256": "d559348d65ba7ddb110dddf0a737a095cd21108b37553b88e39140d7ceaaa1df"
+    },
+    {
+      "name": "ui/footer_colors",
+      "file": "graphics/ui/resources.json",
+      "size": 8,
+      "sha256": "f635d0244bde670618ee1cfaf06e855898c28dac225f5e4f4b3c60f3023cf911"
+    },
+    {
+      "name": "ui/footer_rainbow",
+      "file": "graphics/ui/resources.json",
+      "size": 24,
+      "sha256": "6baa14d9daed40d37a2ecdb2ec53654757fe8b87972cf26c2939c5cc46fd1b5e"
+    },
+    {
+      "name": "ui/keyboard",
+      "file": "data/resources.json",
+      "size": 64,
+      "sha256": "25803c747f5615b52790716be70009b4a576346f55e514b8e1c80d6907278a31"
+    },
+    {
+      "name": "ui/scroller",
+      "file": "text/resources.json",
+      "size": 128,
+      "sha256": "2cc829c4239308194c0bfff6f54bca8b7e49e93452666e2d6d5fb57bc5afa3db"
+    },
+    {
+      "name": "vehicles/compact",
+      "file": "graphics/vehicles/compact.bin",
+      "size": 768,
+      "sha256": "d8399f5c5fef8e7360bc51fb8123409406930e552a717b9c9d3dfcba005e747c"
+    },
+    {
+      "name": "vehicles/hearse",
+      "file": "graphics/vehicles/hearse.bin",
+      "size": 768,
+      "sha256": "b8d5bc822df927a84fa3091267a95916562f36e619894c17403b5b1621d83be5"
+    },
+    {
+      "name": "vehicles/performance",
+      "file": "graphics/vehicles/performance.bin",
+      "size": 768,
+      "sha256": "d8b176fa8aaca16123555b2b9188b7f4336d5a4f4c5c659223f2d3e23649dd00"
+    },
+    {
+      "name": "vehicles/wagon",
+      "file": "graphics/vehicles/wagon.bin",
+      "size": 768,
+      "sha256": "f83e5100f8b662fba64c6bec15a5d2cadf988679ffe4427272c49ac06d93ed9e"
+    },
+    {
+      "name": "zuul/climb_colors",
+      "file": "graphics/zuul/resources.json",
+      "size": 840,
+      "sha256": "5687d7ab1679190853df66375f0a6e980b2afed15e378d1bc56d02457fe3f2da"
+    },
+    {
+      "name": "zuul/climb_screen",
+      "file": "graphics/zuul/resources.json",
+      "size": 840,
+      "sha256": "e599a86ea7d934fa97efe3812b1393cf971749bc68790f61770f2bf2d40d36db"
+    },
+    {
+      "name": "zuul/gate_frames",
+      "file": "graphics/zuul/resources.json",
+      "size": 96,
+      "sha256": "6436e2145d36c2915582712aa339bf74f0a9b124a8916e6090849350b37bdbe7"
+    },
+    {
+      "name": "zuul/generated_colors",
+      "file": "graphics/zuul/resources.json",
+      "size": 120,
+      "sha256": "dd5779695850f9a96bc05ac43bd2442810c207536b3901045d0841ce8ad71dc5"
+    },
+    {
+      "name": "zuul/generated_screen",
+      "file": "graphics/zuul/resources.json",
+      "size": 120,
+      "sha256": "f1b43eb3c80d1ced33241c39302c537fdbcfb3999ee40e8335b3395b7ee90ee5"
+    }
+  ],
+  "font": {
+    "file": "fonts/game_font.json",
+    "size": 4096,
+    "sha256": "fd0d53b8480e86163ac98998976c72cc58d5dd8eb824ed7b829774e74213b420"
+  }
+}

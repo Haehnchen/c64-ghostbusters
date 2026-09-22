@@ -1,0 +1,78 @@
+# Natural startup: Compact, detector, five bait and one trap ($6600 left).
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 N
+2
+2 Return
+1200
+2 1
+100
+2 Return
+500
+2 Space
+100
+100 Right
+2
+2 Space
+100
+2 2
+600
+# Buy bait in capture category row 0 before the trap.
+2 Space
+100
+100 Right
+2
+2 Space
+100
+100 Left
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+2 E
+600
+42 Left
+120 Up
+98 Right
+2 Down Space
+1800
+# This shop timing yields a normal missed trap, with speech 2 and one man lost.
+16 Right
+2
+2 Space
+2
+16 Right
+2 Right Space
+2
+16 Left
+2 Left Space
+2
+2 Space
+1200
+# Return to headquarters below the bottom road, building 17.
+70 Left
+120 Down
+14 Right
+2 Down Space
+2000
+16 Left
+2
+
+# Wait for the first natural PK-5000 alarm, then drive to HQ while it matures.
+13484
+16 Right
+2
+2 Down Space
+# Ends during the natural Marshmallow approach; the test chooses B or no bait.
+681

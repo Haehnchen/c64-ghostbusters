@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "assets": {
+    "audio/effects/delays": {
+      "encoding": "hex",
+      "data": "020406080c101214181c202428300040fefdfbf7efdfbf7f"
+    },
+    "audio/effects/controls": {
+      "encoding": "hex",
+      "data": "10111213141520212223404142438081"
+    },
+    "audio/effects/streams": {
+      "encoding": "hex",
+      "data": "0590f1950640fcb1ec000590f81b1117bc324315ac9531000540441b1117bcf22dac00054064951b1127bcf248ac000500f0fc27fa040c3125fbec00"
+    },
+    "audio/effects/pitches": {
+      "encoding": "hex",
+      "data": "010101010101010101010101020202020202020303030303040404040505050606070707080809090a0b0b0c0d0e0e0f10111213151617191a1c1d1f212325272a2c2f3235383b3f43474b4f54595e646a70777e868e969fa8b3bdc8d4e1eefd"
+    },
+    "audio/effects/frequencies": {
+      "encoding": "hex",
+      "data": "0c1c2d3e51667b91a9c3ddfa18385a7da3ccf6235386bbf43070b4fb4798ed47a70c77e961e168f78f30da8f4e18efd2c3c3d1ef1f60b51e9c31dfa58786a2df3ec16b3c3963be4b0f0c45bf7d83d67973c77c971e188b7efa06acf3e68ff82e"
+    }
+  }
+}

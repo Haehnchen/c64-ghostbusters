@@ -1,0 +1,55 @@
+# Natural profitable Zuul victory, then buy the $15000 car with the earned account.
+2 B
+779
+16 Left
+16 Right
+2 Down Space
+725
+2 B
+2123
+4 Left
+89
+24 Up
+134
+4 Left
+62
+24 Up
+3000
+2 F3
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 Y
+2
+2 Return
+600
+# The displayed AB/$15600 account, not an injected balance.
+2 2
+2
+2 6
+2
+2 7
+2
+2 5
+2
+2 2
+2
+2 6
+2
+2 0
+2
+2 0
+2
+2 Return
+1200
+# High-Performance purchase leaves $600 and a fresh empty equipment shop.
+2 4
+100
+2 Return
+500

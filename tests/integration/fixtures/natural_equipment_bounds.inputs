@@ -1,0 +1,86 @@
+# Standard startup, Compact, no account or inserted inventory.
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 N
+2
+2 Return
+1200
+2 1
+100
+2 Return
+500
+# E without the mandatory trap must stay in the shop.
+2 E
+100
+# First trap: $8000 -> $7400.
+2 2
+600
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# Carry the $8000 portable laser to the car, but cannot afford it.
+2 3
+600
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# Return to traps; buy four more, reaching Compact capacity five.
+2 2
+600
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+100 Left
+2 Space
+100
+100 Right
+2
+2 Space
+100
+100 Left
+2 Space
+100
+100 Right
+2
+2 Space
+100
+100 Left
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# Attempt a sixth trap; $5000 is sufficient, but the car is full.
+100 Left
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# A full car can leave once it has a trap; its notice reaches the city.
+2 E
+600
+16 Left
+2

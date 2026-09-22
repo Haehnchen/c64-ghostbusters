@@ -1,0 +1,56 @@
+# Natural startup: regular AB account and Compact.
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 N
+2
+2 Return
+1200
+2 1
+100
+2 Return
+500
+# Select the Marshmallow sensor on monitoring row 2, pick it up and buy it.
+2 Down
+100
+1 Down
+100
+2 Space # pickup_sensor
+100
+100 Right
+2
+2 Space # buy_sensor
+100
+# Select the regular trap on capture row 1, pick it up and buy it.
+2 2
+600
+1 Down
+100
+2 Space # pickup_trap
+100
+100 Right
+2
+2 Space # buy_trap
+100
+2 E
+600
+# Stay on the city map until natural PK growth produces the first alarm.
+15476
+# Enter the alarmed building 14's map rectangle to activate sensor phase 2.
+12 Right
+# Leave through the roads and enter headquarters while the alarm matures.
+42 Up
+56 Left
+42 Down
+14 Right
+2 Down Space
+2000
+# Let the natural Marshmallow approach and attack return to the city, then
+# prove that city movement remains playable.
+16 Left

@@ -1,0 +1,63 @@
+# Held host keys per PAL logic frame; no game-state injection.
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 N
+2
+2 Return
+1200
+2 1
+100
+2 Return
+500
+# Pick up the detector, carry it to the car, and buy it.
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# Category 2, second row: one trap.
+2 2
+600
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+# Leave only after a real trap purchase.
+2 E
+600
+# Drive to the naturally haunted building 7.
+42 Left
+120 Up
+98 Right
+2 Down Space
+1800
+# Place both figures with separate fire edges, facing inward.
+48 Left
+2
+2 Space
+2
+16 Right
+2 Right Space
+2
+16 Left
+2 Left Space
+2
+# Inward placement already crosses the streams. Wait through the failure;
+# no additional movement or failure speech belongs to this path.
+128
+1200
+# Verify that the returned city accepts a fresh movement input.
+16 Left
+2

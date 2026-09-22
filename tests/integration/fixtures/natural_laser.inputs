@@ -1,0 +1,49 @@
+# Continue in the Compact shop after the earned victory account was reused.
+# Buy the portable laser ($8000), then one regular trap ($600), leaving $5000.
+2 3
+600
+2 Space
+100
+100 Right
+2
+2 Space
+100
+2 2
+600
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+2 E
+600
+# Drive to the naturally haunted building 7.
+42 Left
+120 Up
+98 Right
+2 Down Space
+2534
+# Use the established inward-facing beam placement and capture with the laser.
+16 Right
+2
+2 Space
+2
+16 Right
+2 Right Space
+2
+16 Left
+2 Left Space
+2
+2 Space
+1200
+# Return to headquarters below the bottom road, then prove city movement.
+70 Left
+120 Down
+14 Right
+2 Down Space
+2000
+16 Left
+2

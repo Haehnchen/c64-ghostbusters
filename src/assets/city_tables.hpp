@@ -1,0 +1,89 @@
+#pragma once
+
+#include <array>
+#include <cstddef>
+#include <cstdint>
+
+namespace ghostbusters::assets::city_tables {
+
+struct EntrySprite {
+    std::uint8_t pointer;
+    std::uint8_t x;
+    std::uint8_t y;
+    std::uint8_t target_x;
+    std::uint8_t target_y;
+};
+
+struct ArrivingSprite {
+    std::uint8_t x;
+    std::uint8_t y;
+    std::uint8_t target_x;
+    std::uint8_t target_y;
+};
+
+struct ZuulSprite {
+    std::uint8_t check_x;
+    std::uint8_t check_y;
+    std::uint8_t target_x;
+    std::uint8_t target_y;
+};
+
+inline constexpr std::array<std::uint8_t, 30> kMapTypes{{
+    0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x01, 0x02, 0x03, 0x04,
+    0x05, 0x06, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x01, 0x02,
+    0x06, 0x01, 0x03, 0x04, 0x05, 0x04, 0x05, 0x06, 0x02, 0x03}};
+
+inline constexpr std::array<std::uint16_t, 20> kBuildingColorBases{{
+    46, 53, 60, 67, 166, 173, 180, 187, 366, 373,
+    380, 387, 566, 573, 580, 587, 766, 773, 780, 787}};
+
+inline constexpr std::array<std::uint8_t, 4> kBuildingPhaseColors{
+    13, 12, 9, 10};
+inline constexpr std::array<std::uint8_t, 4> kNextHauntPhase{
+    20, 28, 248, 31};
+inline constexpr std::array<std::uint8_t, 10> kDifficultyMasks{
+    63, 31, 15, 7, 3, 1, 1, 1, 1, 1};
+
+inline constexpr std::array<std::uint8_t, 44> kVerticalRoad{{
+    0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x6D, 0x77,
+    0x6E, 0x78, 0x79, 0x7A, 0x7B, 0x78, 0x7C, 0x6D, 0x7D, 0x7E, 0x77,
+    0x6E, 0x7F, 0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x77,
+    0x6E, 0x88, 0x7B, 0x82, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x77}};
+
+inline constexpr std::array<std::uint8_t, 3> kPkLabel{0x1A, 0x15, 0x15};
+inline constexpr std::uint8_t kPkSeparator = 0x0C;
+
+inline constexpr std::array<EntrySprite, 8> kEntrySprites{{
+    {4, 0x47, 0xBA, 0x47, 0xBA},
+    {5, 0x47, 0xBA, 0x47, 0xBA},
+    {7, 0x00, 0x42, 0x1D, 0x42},
+    {6, 0x00, 0xBA, 0x1D, 0xBA},
+    {8, 0x00, 0x12, 0x62, 0x7A},
+    {9, 0xA8, 0x32, 0x62, 0x7A},
+    {8, 0x00, 0xE2, 0x62, 0x7A},
+    {9, 0xA8, 0xC2, 0x62, 0x7A}}};
+
+inline constexpr std::array<ArrivingSprite, 4> kArrivingSprites{{
+    {0x00, 0x12, 0x62, 0x7A},
+    {0xA8, 0x32, 0x62, 0x7A},
+    {0x00, 0xE2, 0x62, 0x7A},
+    {0xA8, 0xC2, 0x62, 0x7A}}};
+
+inline constexpr std::array<std::uint8_t, 4> kZuulRouteXOffsets{
+    0x00, 0x01, 0x00, 0xFF};
+inline constexpr std::array<std::uint8_t, 4> kZuulRouteYOffsets{
+    0x01, 0x00, 0xFF, 0x00};
+inline constexpr std::array<std::uint8_t, 7> kZuulTargetX{
+    0x39, 0x1D, 0x39, 0x55, 0x71, 0x8D, 0x71};
+inline constexpr std::array<std::uint8_t, 6> kZuulTargetY{
+    0x6A, 0x42, 0x6A, 0x92, 0xBA, 0x92};
+inline constexpr std::array<ZuulSprite, 2> kZuulSprites{{
+    {0x65, 0x6A, 0x61, 0x86},
+    {0x65, 0x92, 0x65, 0x87}}};
+
+inline constexpr std::array<std::ptrdiff_t, 30> kMapDestinations{
+    -34, -27, -20, -13, 166, 173, 180, 187, 366, 373,
+    380, 387, 566, 573, 580, 587, 766, 773, 780, 787,
+    759, 794, 159, 359, 559, 194, 394, 594, -41, -6};
+
+} // namespace ghostbusters::assets::city_tables

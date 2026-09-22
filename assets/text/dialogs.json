@@ -1,0 +1,894 @@
+{
+  "format_version": 1,
+  "assets": {
+    "text/franchise_intro": {
+      "encoding": "text_commands",
+      "data": [
+        "    GHOSTBUSTERS",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "column": 5
+        },
+        "FOR PROFESSIONAL",
+        {
+          "newline": true
+        },
+        {
+          "column": 11
+        },
+        "PARANORMAL",
+        {
+          "newline": true
+        },
+        {
+          "column": 13
+        },
+        "INVESTIGATIONS",
+        {
+          "newline": true
+        },
+        {
+          "column": 16
+        },
+        "AND ELIMINATIONS",
+        {
+          "newline": true
+        },
+        "   ",
+        {
+          "newline": true
+        },
+        "   -WE'RE READY TO BELIEVE YOU-",
+        {
+          "newline": true
+        },
+        "   ",
+        {
+          "newline": true
+        },
+        "TO FORM A GHOSTBUSTERS FRANCHISE IN YOUR CITY PLEASE STATE YOUR NAME- LAST,FIRST: ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/account_question": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        "DO YOU HAVE AN ACCOUNT? ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/new_account": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "IN THAT CASE, WELCOME TO YOUR NEW BUSINESS. ",
+        {
+          "wait": 1
+        },
+        {
+          "wait": 1
+        },
+        {
+          "wait": 1
+        },
+        "AS A NEW FRANCHISE OWNER THE BANK WILL ADVANCE YOU $10000 FOR EQUIPMENT. USE IT WISELY... GOOD LUCK..  ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/account_number": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        "WHAT IS YOUR ACCOUNT NUMBER?",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/invalid_account": {
+      "encoding": "text_commands",
+      "data": [
+        "INVALID ACCOUNT NUMBER.",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_menu": {
+      "encoding": "text_commands",
+      "data": [
+        "GHOSTBUSTING VEHICLE SELECTION:",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "1. COMPACT:",
+        {
+          "column": 27
+        },
+        " $2000",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "2. 1963 HEARSE:",
+        {
+          "column": 27
+        },
+        " $4800",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "3. STATION WAGON:",
+        {
+          "column": 27
+        },
+        " $6000",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "4. HIGH-PERFORMANCE:",
+        {
+          "column": 27
+        },
+        "$15000",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/balance_prefix": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "YOU HAVE ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_instructions": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "PRESS SPACE BAR TO VIEW CAR OPTIONS.",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "PRESS 1,2,3 OR 4 TO PURCHASE CAR.   ",
+        {
+          "newline": true
+        },
+        "PRESS RETURN AFTER YOU CHOOSE. ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "GO AHEAD:",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/poor_ending": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "THE KEYMASTER AND GATEKEEPER ARRIVED AT ZUUL ENDING THE GAME. YOU DIDN'T MAKE ENOUGH MONEY SO THE BANK HAS FORECLOSED. BETTER LUCK NEXT TIME.",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/failure_prefix": {
+      "encoding": "text_commands",
+      "data": [
+        "GOOD TRY ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/failure_suffix": {
+      "encoding": "text_commands",
+      "data": [
+        ",",
+        {
+          "newline": true
+        },
+        "BUT YOU FAILED TO CLOSE THE PORTAL TO THE SPIRIT WORLD AND ZUUL HAS TAKEN OVER YOUR CITY.",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/credit_prefix": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "YOU MADE MORE MONEY THAN YOU STARTED WITH, SO THE BANK WILL RAISE YOUR CREDIT LIMIT TO ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/account_prefix": {
+      "encoding": "text_commands",
+      "data": [
+        ".",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "YOUR NEW ACCOUNT NUMBER IS ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/restart_prompt": {
+      "encoding": "text_commands",
+      "data": [
+        ". WRITE THIS NUMBER DOWN FOR FUTURE PLAY.",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/success_prefix": {
+      "encoding": "text_commands",
+      "data": [
+        "CONGRATULATIONS(",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "THANKS TO YOU, ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/success_suffix": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        "THE PORTAL TO THE SPIRIT WORLD HAS BEEN CLOSED. YOU EARN A $5000 REWARD FROM THE CITY. ALSO, ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/starting_balance": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "STARTING BALANCE: ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/ending_balance": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "  ENDING BALANCE: ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_preview_0": {
+      "encoding": "text_commands",
+      "data": [
+        "1. COMPACT:",
+        {
+          "column": 27
+        },
+        " $2000",
+        {
+          "newline": true
+        },
+        "   CARRIES 5 ITEMS OF CARGO",
+        {
+          "newline": true
+        },
+        "   TOP SPEED 75 MPH",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_preview_1": {
+      "encoding": "text_commands",
+      "data": [
+        "2. 1963 HEARSE:",
+        {
+          "column": 27
+        },
+        " $4800",
+        {
+          "newline": true
+        },
+        "   CARRIES 9 ITEMS OF CARGO",
+        {
+          "newline": true
+        },
+        "   TOP SPEED 90 MPH",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_preview_2": {
+      "encoding": "text_commands",
+      "data": [
+        "3. STATION WAGON:",
+        {
+          "column": 27
+        },
+        " $6000",
+        {
+          "newline": true
+        },
+        "   CARRIES 11 ITEMS OF CARGO",
+        {
+          "newline": true
+        },
+        "   TOP SPEED 110 MPH",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_preview_3": {
+      "encoding": "text_commands",
+      "data": [
+        "4. HIGH-PERFORMANCE:",
+        {
+          "column": 27
+        },
+        "$15000",
+        {
+          "newline": true
+        },
+        "   CARRIES 7 ITEMS OF CARGO",
+        {
+          "newline": true
+        },
+        "   TOP SPEED 160 MPH",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/vehicle_hint_0": {
+      "encoding": "text_commands",
+      "data": [
+        "PRESS SPACE BAR TO VIEW CAR OPTIONS."
+      ]
+    },
+    "text/vehicle_hint_1": {
+      "encoding": "text_commands",
+      "data": [
+        "PRESS 1,2,3 OR 4 TO PURCHASE CAR.   "
+      ]
+    },
+    "text/equipment_category_0": {
+      "encoding": "text_commands",
+      "data": [
+        "MONITORING EQUIPMENT:",
+        {
+          "newline": true
+        },
+        "---------------------",
+        {
+          "newline": true
+        },
+        "PK ENERGY DETECTOR",
+        {
+          "column": 29
+        },
+        "  $400",
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "IMAGE INTENSIFIER ",
+        {
+          "column": 29
+        },
+        "  $800",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "MARSHMALLOW SENSOR",
+        {
+          "column": 29
+        },
+        "  $800",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "USE JOYSTICK TO CONTROL FORKLIFT.",
+        {
+          "newline": true
+        },
+        "TYPE: 1-3 FOR MORE CHOICES, E TO END",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/equipment_category_1": {
+      "encoding": "text_commands",
+      "data": [
+        "CAPTURE EQUIPMENT:   ",
+        {
+          "newline": true
+        },
+        "---------------------",
+        {
+          "newline": true
+        },
+        "GHOST BAIT        ",
+        {
+          "column": 29
+        },
+        "  $400",
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "TRAPS -REQUIRED-  ",
+        {
+          "column": 29
+        },
+        "  $600",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "GHOST VACUUM      ",
+        {
+          "column": 29
+        },
+        "  $500",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "USE JOYSTICK TO CONTROL FORKLIFT.",
+        {
+          "newline": true
+        },
+        "TYPE: 1-3 FOR MORE CHOICES, E TO END",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/equipment_category_2": {
+      "encoding": "text_commands",
+      "data": [
+        "STORAGE EQUIPMENT:   ",
+        {
+          "newline": true
+        },
+        "---------------------",
+        {
+          "newline": true
+        },
+        "PORTABLE LASER    ",
+        {
+          "column": 29
+        },
+        " $8000",
+        {
+          "newline": true
+        },
+        "CONFINEMENT SYSTEM",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "                  ",
+        {
+          "column": 29
+        },
+        "         ",
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        {
+          "newline": true
+        },
+        "USE JOYSTICK TO CONTROL FORKLIFT.",
+        {
+          "newline": true
+        },
+        "TYPE: 1-3 FOR MORE CHOICES, E TO END",
+        {
+          "newline": true
+        },
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_0": {
+      "encoding": "text_commands",
+      "data": [
+        "YOU HAVE NO EMPTY TRAPS. GO BACK TO GHQ. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_1": {
+      "encoding": "text_commands",
+      "data": [
+        "YOUR BACKUP MEN ARE ALL OUT OF ACTION. GO BACK TO GHQ. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_2": {
+      "encoding": "text_commands",
+      "data": [
+        "SORRY, NO BAIT. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_3": {
+      "encoding": "text_commands",
+      "data": [
+        "BACKPACKS DISCHARGED. GO BACK TO GHQ. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_4": {
+      "encoding": "text_commands",
+      "data": [
+        "-MARSHMALLOW ALERT- ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_5": {
+      "encoding": "text_commands",
+      "data": [
+        "MARSHMALLOW MAN DID $4000 WORTH OF DAMAGE. THAT AMOUNT WILL BE DEDUCTED FROM YOUR BALANCE. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_6": {
+      "encoding": "text_commands",
+      "data": [
+        "MAYOR AWARDS YOU $2000 FOR AVERTING MARSHMALLOW CATASTROPHE. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_7": {
+      "encoding": "text_commands",
+      "data": [
+        "YOUR CAR IS LOADED TO CAPACITY. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_8": {
+      "encoding": "text_commands",
+      "data": [
+        "YOU CROSSED THE STREAMS((( FORTUNATELY YOUR BACKPACKS SHORTED OUT IN TIME. GO BACK TO GHQ. ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/notice_9": {
+      "encoding": "text_commands",
+      "data": [
+        "GO TO ZUUL( SNEAK PAST THE MARSHMALLOW MAN AND CLOSE THE PORTAL... ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/resource_notice": {
+      "encoding": "text_commands",
+      "data": [
+        "BACKPACK POWER AT XX% OF MAXIMUM... X EMPTY TRAPS... X MEN LEFT... ",
+        {
+          "end": true
+        }
+      ]
+    },
+    "text/account_label": {
+      "encoding": "text_commands",
+      "data": [
+        {
+          "glyph": 7
+        },
+        {
+          "glyph": 8
+        },
+        {
+          "glyph": 17
+        }
+      ]
+    }
+  }
+}

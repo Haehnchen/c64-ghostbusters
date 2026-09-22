@@ -1,0 +1,31 @@
+# Continuation after natural_capture.inputs: use the trap replenished at HQ.
+72 Right
+2
+2 Space
+1800
+16 Right
+2
+2 Space
+2
+16 Right
+2 Right Space
+2
+16 Left
+2 Left Space
+2
+2 Space
+1400
+# Let the unmodified city clocks and roamers reach the financial-loss ending.
+20000
+# Restart from the ending, let startup speech finish, then begin a new game.
+2 F1
+300
+2
+2 F1
+1200
+2 C
+2
+2 D
+2
+2 Return
+600

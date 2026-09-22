@@ -1,0 +1,96 @@
+# Regular AB / Compact start, all three monitoring devices, trap and vacuum.
+300
+2 F1
+1200
+2 A
+2
+2 B
+2
+2 Return
+600
+2 N
+2
+2 Return
+1200
+2 1
+100
+2 Return
+500
+# Detector, image intensifier, Marshmallow sensor.
+2 Space # pickup_detector
+100
+100 Right
+2
+2 Space # buy_detector
+100
+100 Left
+1 Down
+100
+2 Space # pickup_intensifier
+100
+100 Right
+2
+2 Space # buy_intensifier
+100
+100 Left
+1 Down
+100
+2 Space # pickup_sensor
+100
+100 Right
+2
+2 Space # buy_sensor
+100
+# Trap and vacuum: the fifth purchase fills the Compact.
+2 2
+600
+1 Down
+100
+2 Space
+100
+100 Right
+2
+2 Space
+100
+100 Left
+1 Down
+100
+2 Space # pickup_vacuum
+100
+100 Right
+2
+2 Space # buy_vacuum
+100
+2 E
+600
+# Meet a naturally moving street ghost before the drive.
+70 Right
+1000
+120 Up
+14 Left
+2 Down Space
+100
+90 Left
+262
+2 Space
+1346
+# Regular building attempt (natural miss with speech 2) and HQ return.
+16 Right
+2
+2 Space
+2
+16 Right
+2 Right Space
+2
+16 Left
+2 Left Space
+2
+2 Space
+1200
+70 Left
+120 Down
+14 Right
+2 Down Space
+2000
+16 Left
+2

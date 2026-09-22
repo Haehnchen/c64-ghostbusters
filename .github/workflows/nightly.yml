@@ -1,0 +1,335 @@
+name: Nightly release
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-release
+  cancel-in-progress: false
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      SDL3_COMMIT: 683181b47cfabd293e3ea409f838915b8297a4fd
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends --yes \
+            autoconf automake build-essential cmake git libtool ninja-build \
+            pkg-config python3 unzip xauth xvfb libgl1-mesa-dri \
+            libasound2-dev libdbus-1-dev libdecor-0-dev libdrm-dev \
+            libegl1-mesa-dev libfribidi-dev libgbm-dev libgl1-mesa-dev \
+            libgles2-mesa-dev libibus-1.0-dev libpipewire-0.3-dev \
+            libpulse-dev libudev-dev libwayland-dev libx11-dev \
+            libxcursor-dev libxext-dev libxfixes-dev libxi-dev \
+            libxkbcommon-dev libxrandr-dev libxss-dev libxtst-dev
+
+      - name: Build pinned static SDL3
+        run: |
+          set -euo pipefail
+          sdl_prefix="$RUNNER_TEMP/sdl3"
+          git init --quiet "$RUNNER_TEMP/SDL"
+          git -C "$RUNNER_TEMP/SDL" remote add origin https://github.com/libsdl-org/SDL.git
+          git -C "$RUNNER_TEMP/SDL" fetch --depth 1 origin "$SDL3_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/SDL" rev-parse FETCH_HEAD)" = "$SDL3_COMMIT"
+          git -C "$RUNNER_TEMP/SDL" checkout --detach FETCH_HEAD
+          cmake -S "$RUNNER_TEMP/SDL" -B "$RUNNER_TEMP/SDL-build" -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$sdl_prefix" \
+            -DCMAKE_INSTALL_LIBDIR=lib \
+            -DSDL_SHARED=OFF -DSDL_STATIC=ON \
+            -DSDL_TEST_LIBRARY=OFF -DSDL_TESTS=OFF
+          cmake --build "$RUNNER_TEMP/SDL-build" --parallel
+          cmake --install "$RUNNER_TEMP/SDL-build"
+          {
+            echo "CMAKE_PREFIX_PATH=$sdl_prefix"
+            echo "PKG_CONFIG_PATH=$sdl_prefix/lib/pkgconfig"
+            echo "GHOSTBUSTERS_SDL_NOTICE=$RUNNER_TEMP/SDL/LICENSE.txt"
+          } >> "$GITHUB_ENV"
+
+      - name: Check and build Ghostbusters
+        run: |
+          make audio-setup
+          make doctor
+          env -u WAYLAND_DISPLAY SDL_VIDEODRIVER=dummy \
+            SDL_RENDER_DRIVER=software SDL_AUDIODRIVER=dummy make check
+          make release
+
+      - name: Verify release archives
+        run: |
+          set -euo pipefail
+          test -s build/release/ghostbusters-Linux-x86_64.zip
+          test -s build/release/ghostbusters-Linux-x86_64-bundled.zip
+          smoke_dir=$(mktemp -d "$RUNNER_TEMP/ghostbusters-smoke.XXXXXX")
+          unzip -q build/release/ghostbusters-Linux-x86_64-bundled.zip -d "$smoke_dir"
+          env -u WAYLAND_DISPLAY -u LD_LIBRARY_PATH -u LD_PRELOAD \
+            SDL_VIDEODRIVER=dummy SDL_RENDER_DRIVER=software SDL_AUDIODRIVER=dummy \
+            "$smoke_dir/ghostbusters" --smoke-test
+          test ! -e "$smoke_dir/lib/libc.so.6"
+          test ! -e "$smoke_dir/lib/ld-linux-x86-64.so.2"
+          if ! env -u WAYLAND_DISPLAY -u LD_LIBRARY_PATH -u LD_PRELOAD \
+            SDL_RENDER_DRIVER=opengl SDL_VIDEODRIVER=x11 GDK_BACKEND=x11 SDL_AUDIODRIVER=dummy \
+            timeout 30s xvfb-run -a "$smoke_dir/ghostbusters" --smoke-test; then
+            echo "::warning::OpenGL smoke test failed under Xvfb; the dummy-driver smoke test passed."
+          fi
+
+      - name: Store release archives
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: nightly-linux
+          path: |
+            build/release/ghostbusters-Linux-x86_64.zip
+            build/release/ghostbusters-Linux-x86_64-bundled.zip
+          if-no-files-found: error
+          retention-days: 1
+
+  build-windows:
+    runs-on: windows-2025
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: msys2 {0}
+    env:
+      CC: gcc
+      CXX: g++
+      MSYS2_ENV_CONV_EXCL: ACLOCAL_PATH
+      SDL3_COMMIT: 683181b47cfabd293e3ea409f838915b8297a4fd
+    steps:
+      - name: Configure checkout line endings
+        shell: pwsh
+        run: git config --global core.autocrlf input
+
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Set up MSYS2 UCRT64
+        uses: msys2/setup-msys2@66cd2cce69caa17b53920067426061ca1de3a884 # v2.32.0
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            autoconf
+            automake
+            git
+            libtool
+            make
+            unzip
+          pacboy: >-
+            cmake:p
+            gcc:p
+            ninja:p
+            pkgconf:p
+            python:p
+
+      - name: Build pinned static SDL3
+        run: |
+          set -euo pipefail
+          runner_temp=$(cygpath -u "$RUNNER_TEMP")
+          sdl_prefix="$runner_temp/sdl3"
+          git init --quiet "$runner_temp/SDL"
+          git -C "$runner_temp/SDL" remote add origin https://github.com/libsdl-org/SDL.git
+          git -C "$runner_temp/SDL" fetch --depth 1 origin "$SDL3_COMMIT"
+          test "$(git -C "$runner_temp/SDL" rev-parse FETCH_HEAD)" = "$SDL3_COMMIT"
+          git -C "$runner_temp/SDL" checkout --detach FETCH_HEAD
+          cmake -S "$runner_temp/SDL" -B "$runner_temp/SDL-build" -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$sdl_prefix" \
+            -DCMAKE_INSTALL_LIBDIR=lib \
+            -DSDL_SHARED=OFF -DSDL_STATIC=ON \
+            -DSDL_TEST_LIBRARY=OFF -DSDL_TESTS=OFF
+          cmake --build "$runner_temp/SDL-build" --parallel
+          cmake --install "$runner_temp/SDL-build"
+          {
+            echo "SDL_PREFIX=$sdl_prefix"
+            echo "CMAKE_PREFIX_PATH=$(cygpath -m "$sdl_prefix")"
+            echo "GHOSTBUSTERS_SDL_NOTICE=$(cygpath -m "$runner_temp/SDL/LICENSE.txt")"
+          } >> "$GITHUB_ENV"
+
+      - name: Check and build Ghostbusters
+        run: |
+          set -euo pipefail
+          export PATH="$SDL_PREFIX/bin:$PATH"
+          export PKG_CONFIG_PATH="$SDL_PREFIX/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+          make audio-setup
+          make doctor
+          SDL_VIDEODRIVER=dummy SDL_RENDER_DRIVER=software \
+            SDL_AUDIODRIVER=dummy make check
+          make release
+
+      - name: Verify bundled release
+        run: |
+          set -euo pipefail
+          archive=build/release/ghostbusters-Windows-x86_64-bundled.zip
+          test -s "$archive"
+          smoke_dir=$(mktemp -d)
+          unzip -q "$archive" -d "$smoke_dir"
+          test -s "$smoke_dir/ghostbusters.exe"
+          find "$smoke_dir" -maxdepth 1 -type f -iname '*.dll' -print -quit | grep -q .
+          env PATH="$(cygpath -S)" \
+            SDL_VIDEODRIVER=dummy SDL_RENDER_DRIVER=software SDL_AUDIODRIVER=dummy \
+            "$smoke_dir/ghostbusters.exe" --smoke-test
+
+      - name: Store release archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: nightly-windows-x86_64
+          path: build/release/ghostbusters-Windows-x86_64-bundled.zip
+          if-no-files-found: error
+          retention-days: 1
+
+  build-macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    env:
+      MACOSX_DEPLOYMENT_TARGET: '13.0'
+      SDL3_COMMIT: 683181b47cfabd293e3ea409f838915b8297a4fd
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Install build dependencies
+        run: brew install autoconf automake libtool ninja pkg-config
+
+      - name: Build pinned static SDL3
+        run: |
+          set -euo pipefail
+          sdl_prefix="$RUNNER_TEMP/sdl3"
+          git init --quiet "$RUNNER_TEMP/SDL"
+          git -C "$RUNNER_TEMP/SDL" remote add origin https://github.com/libsdl-org/SDL.git
+          git -C "$RUNNER_TEMP/SDL" fetch --depth 1 origin "$SDL3_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/SDL" rev-parse FETCH_HEAD)" = "$SDL3_COMMIT"
+          git -C "$RUNNER_TEMP/SDL" checkout --detach FETCH_HEAD
+          cmake -S "$RUNNER_TEMP/SDL" -B "$RUNNER_TEMP/SDL-build" -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$sdl_prefix" \
+            -DCMAKE_INSTALL_LIBDIR=lib \
+            -DCMAKE_OSX_ARCHITECTURES="${{ matrix.arch }}" \
+            -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOSX_DEPLOYMENT_TARGET" \
+            -DSDL_SHARED=OFF -DSDL_STATIC=ON \
+            -DSDL_TEST_LIBRARY=OFF -DSDL_TESTS=OFF
+          cmake --build "$RUNNER_TEMP/SDL-build" --parallel
+          cmake --install "$RUNNER_TEMP/SDL-build"
+          {
+            echo "CMAKE_PREFIX_PATH=$sdl_prefix"
+            echo "PKG_CONFIG_PATH=$sdl_prefix/lib/pkgconfig"
+            echo "GHOSTBUSTERS_SDL_NOTICE=$RUNNER_TEMP/SDL/LICENSE.txt"
+          } >> "$GITHUB_ENV"
+
+      - name: Check and build Ghostbusters
+        run: |
+          make audio-setup
+          make doctor
+          SDL_VIDEODRIVER=dummy SDL_RENDER_DRIVER=software \
+            SDL_AUDIODRIVER=dummy make check
+          make release
+
+      - name: Verify bundled release
+        run: |
+          set -euo pipefail
+          archive="build/release/ghostbusters-macOS-${{ matrix.arch }}-bundled.zip"
+          test -s "$archive"
+          smoke_dir=$(mktemp -d "$RUNNER_TEMP/ghostbusters-smoke.XXXXXX")
+          unzip -q "$archive" -d "$smoke_dir"
+          app="$smoke_dir/Ghostbusters.app"
+          binary="$app/Contents/MacOS/Ghostbusters"
+          test -x "$binary"
+          codesign --verify --deep --strict "$app"
+          lipo -archs "$binary" | grep -qw "${{ matrix.arch }}"
+          ! otool -L "$binary" | tail -n +2 | \
+            grep -E '(/opt/homebrew|/usr/local|/Users/runner/work|/private/var/folders)'
+          env -u DYLD_LIBRARY_PATH -u DYLD_INSERT_LIBRARIES \
+            SDL_VIDEODRIVER=dummy SDL_RENDER_DRIVER=software SDL_AUDIODRIVER=dummy \
+            "$binary" --smoke-test
+
+      - name: Store release archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: nightly-macos-${{ matrix.arch }}
+          path: build/release/ghostbusters-macOS-${{ matrix.arch }}-bundled.zip
+          if-no-files-found: error
+          retention-days: 1
+
+  release:
+    if: ${{ !cancelled() && github.ref_name == github.event.repository.default_branch }}
+    needs: [build-linux, build-windows, build-macos]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download release archives
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: nightly-*
+          path: dist
+          merge-multiple: true
+
+      - name: Verify release archives
+        id: archives
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          mkdir -p verified
+          count=0
+          for archive in dist/ghostbusters-*.zip; do
+            if unzip -tq "$archive"; then
+              cp "$archive" verified/
+              count=$((count + 1))
+            else
+              echo "::warning::Skipping invalid release archive: $archive"
+            fi
+          done
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          if (( count == 0 )); then
+            echo "::warning::No valid release archives; skipping publication."
+          fi
+
+      - name: Publish rolling nightly release
+        if: steps.archives.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag=nightly
+          notes="Automated build of ${GITHUB_SHA} from ${GITHUB_REF_NAME}. See [README](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_SHA}/README.md)."
+
+          if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${tag}" >/dev/null 2>&1; then
+            gh api --method PATCH "repos/${GITHUB_REPOSITORY}/git/refs/tags/${tag}" \
+              --raw-field sha="$GITHUB_SHA" --field force=true >/dev/null
+          else
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/git/refs" \
+              --raw-field ref="refs/tags/${tag}" --raw-field sha="$GITHUB_SHA" >/dev/null
+          fi
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release edit "$tag" --title "Nightly build" --notes "$notes" --prerelease
+          else
+            gh release create "$tag" --verify-tag \
+              --title "Nightly build" --notes "$notes" --prerelease
+          fi
+          gh release upload "$tag" verified/*.zip --clobber
