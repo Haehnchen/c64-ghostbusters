@@ -5,6 +5,37 @@ if(CMAKE_HOST_APPLE AND GHOSTBUSTERS_RELEASE AND NOT CMAKE_OSX_DEPLOYMENT_TARGET
 endif()
 project(ghostbusters LANGUAGES CXX)
 option(GHOSTBUSTERS_COMPILER_CACHE "Use ccache when available" ON)
+# Windows executables can carry their shell icon as a PE resource. Keep the
+# resource compiler optional so native non-Windows builds do not acquire a
+# platform-specific toolchain requirement.
+set(_ghostbusters_windows_icon
+    "${CMAKE_CURRENT_SOURCE_DIR}/assets/icons/ghostbusters.ico")
+set(_ghostbusters_windows_icon_source)
+if(WIN32)
+    # Also notice the asset when it is added after the first configure.
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
+        "${_ghostbusters_windows_icon}")
+endif()
+if(WIN32 AND EXISTS "${_ghostbusters_windows_icon}")
+    include(CheckLanguage)
+    check_language(RC)
+    if(CMAKE_RC_COMPILER AND NOT CMAKE_RC_COMPILER MATCHES "-NOTFOUND$")
+        enable_language(RC)
+        file(TO_CMAKE_PATH
+            "${_ghostbusters_windows_icon}"
+            _ghostbusters_windows_icon_path)
+        configure_file(
+            "${CMAKE_CURRENT_SOURCE_DIR}/cmake/GhostbustersIcon.rc.in"
+            "${CMAKE_CURRENT_BINARY_DIR}/GhostbustersIcon.rc" @ONLY)
+        set(_ghostbusters_windows_icon_source
+            "${CMAKE_CURRENT_BINARY_DIR}/GhostbustersIcon.rc")
+        set_source_files_properties("${_ghostbusters_windows_icon_source}"
+            PROPERTIES OBJECT_DEPENDS "${_ghostbusters_windows_icon}")
+    else()
+        message(STATUS
+            "Windows resource compiler unavailable; building without executable icon")
+    endif()
+endif()
 # Ninja handles unchanged inputs; ccache also reuses compilations after a clean
 # build. Preserve explicit launchers (including an intentionally empty one).
 if(GHOSTBUSTERS_COMPILER_CACHE AND NOT DEFINED CMAKE_CXX_COMPILER_LAUNCHER)
@@ -123,6 +154,9 @@ target_link_libraries(ghostbusters_application PUBLIC ghostbusters_core ghostbus
 add_executable(ghostbusters src/platform/sdl/main.cpp)
 target_compile_features(ghostbusters PRIVATE cxx_std_20)
 set_target_properties(ghostbusters PROPERTIES CXX_EXTENSIONS OFF)
+if(_ghostbusters_windows_icon_source)
+    target_sources(ghostbusters PRIVATE "${_ghostbusters_windows_icon_source}")
+endif()
 target_link_libraries(ghostbusters PRIVATE ghostbusters_application)
 if(GHOSTBUSTERS_RELEASE)
     include(cmake/Release.cmake)

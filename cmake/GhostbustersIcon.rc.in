@@ -1,0 +1,4 @@
+// The icon is supplied as an external .ico so artwork remains an ordinary
+// named asset while this generated resource uses an absolute source path.
+#define IDI_GHOSTBUSTERS 101
+IDI_GHOSTBUSTERS ICON "@_ghostbusters_windows_icon_path@"
